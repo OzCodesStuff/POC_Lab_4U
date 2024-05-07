@@ -100,7 +100,6 @@ resource "azurerm_network_interface" "nic" {
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = azurerm_network_interface.ni.id 
   
- {
 resource "azurerm_network_interface" "nic" {
   name                = "myNIC"
   location            = azurerm_resource_group.rg.location
