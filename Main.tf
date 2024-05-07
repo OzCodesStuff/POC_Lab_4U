@@ -53,7 +53,7 @@ resource "azurerm_virtual_machine" "vm" {
   name                  = "myTFVM"
   location              = azurerm_resource_group.rg.location
   resource_group_name   = azurerm_resource_group.rg.name
-  network_interface_ids = [azurerm_network_interface.ni.id] 
+  network_interface_ids = azurerm_network_interface.ni.id
 
 resource "azurerm_network_interface" "nic" {
   name                = "myNIC"
