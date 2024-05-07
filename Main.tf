@@ -43,7 +43,7 @@ resource "azurerm_key_vault" "kv" {
   name                        = "myTFKeyVault"
   location                    = azurerm_resource_group.rg.location
   resource_group_name         = azurerm_resource_group.rg.name
-  tenant_id                   = "<your_tenant_id>"
+  tenant_id                   = "01f3b164-f959-4bb9-bc56-6d06a0193154"
   sku_name                    = "standard"
   purge_protection_enabled    = false
 }
@@ -53,7 +53,7 @@ resource "azurerm_virtual_machine" "vm" {
   name                  = "myTFVM"
   location              = azurerm_resource_group.rg.location
   resource_group_name   = azurerm_resource_group.rg.name
-  network_interface_ids = [azurerm_network_interface.ni.id] # Add the missing attribute
+  network_interface_ids = [azurerm_network_interface.nic.id] # Add the missing attribute
 
   vm_size               = "Standard_D2s_v3"
 
