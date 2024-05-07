@@ -53,9 +53,19 @@ resource "azurerm_virtual_machine" "vm" {
   name                  = "myTFVM"
   location              = azurerm_resource_group.rg.location
   resource_group_name   = azurerm_resource_group.rg.name
-  network_interface_ids = [azurerm_network_interface.nic.id] # Add the missing attribute
+  network_interface_ids = [azurerm_network_interface.nic.id] 
 
-  vm_size               = "Standard_D2s_v3"
+resource "azurerm_network_interface" "nic" {
+  name                = "myNIC"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+
+  ip_configuration {
+    name                          = "myNICConfig"
+    subnet_id                     = azurerm_subnet.mySubnet.id
+    private_ip_address_allocation = "Dynamic"
+  
+vm_size               = "Standard_D2s_v3"
 
   delete_os_disk_on_termination    = true
   delete_data_disks_on_termination = true
